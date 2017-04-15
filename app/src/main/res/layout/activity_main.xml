@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/layoutpad"
+    android:paddingLeft="@dimen/layoutpad"
+    android:paddingRight="@dimen/layoutpad"
+    android:paddingTop="@dimen/layoutpad"
+    tools:context="com.example.fianxeka.tescalc.MainActivity">
+
+    <TextView
+        android:id="@+id/txFor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:text="Formula : " />
+
+    <TextView
+        android:id="@+id/formula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/txFor"
+        android:textSize="15sp"
+        android:textStyle="italic"
+        android:text="" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/copyright"
+        android:id="@+id/copy"
+        android:paddingTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
+    <TextView
+        android:id="@+id/txtResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/formula"
+        android:gravity="right"
+        android:paddingTop="5dp"
+        android:text=""
+        android:textSize="65sp" />
+
+    <Button
+        android:id="@+id/nol"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:theme="@style/Angka.Button"
+        android:layout_above="@+id/equal"
+        android:layout_alignParentLeft="true"
+        android:onClick="btnCLick"
+        android:text="0" />
+
+
+    <Button
+        android:id="@+id/satu"
+        android:theme="@style/Angka.Button"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:layout_above="@+id/equal"
+        android:layout_toRightOf="@+id/nol"
+        android:onClick="btnCLick"
+        android:text="1" />
+
+    <Button
+        android:id="@+id/dua"
+        android:theme="@style/Angka.Button"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:layout_above="@+id/equal"
+        android:layout_toRightOf="@+id/satu"
+        android:onClick="btnCLick"
+        android:text="2" />
+
+    <Button
+        android:id="@+id/tiga"
+        android:theme="@style/Angka.Button"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:layout_above="@+id/equal"
+        android:layout_toRightOf="@+id/dua"
+        android:onClick="btnCLick"
+        android:text="3" />
+
+    <Button
+        android:id="@+id/empat"
+        android:layout_width="@dimen/btnsmall"
+        android:theme="@style/Angka.Button"
+        android:layout_height="@dimen/btnsmall"
+        android:layout_above="@+id/equal"
+        android:layout_toRightOf="@+id/tiga"
+        android:onClick="btnCLick"
+        android:text="4" />
+
+    <Button
+        android:id="@+id/lima"
+        android:layout_width="@dimen/btnsmall"
+        android:theme="@style/Angka.Button"
+        android:layout_height="@dimen/btnsmall"
+        android:layout_above="@+id/nol"
+        android:layout_alignParentLeft="true"
+        android:onClick="btnCLick"
+        android:text="5" />
+
+    <Button
+        android:id="@+id/enam"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:layout_above="@+id/nol"
+        android:theme="@style/Angka.Button"
+        android:layout_toRightOf="@+id/lima"
+        android:onClick="btnCLick"
+        android:text="6" />
+
+    <Button
+        android:id="@+id/tujuh"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:layout_above="@+id/nol"
+        android:theme="@style/Angka.Button"
+        android:layout_toRightOf="@+id/enam"
+        android:onClick="btnCLick"
+        android:text="7" />
+
+    <Button
+        android:id="@+id/delapan"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:layout_above="@+id/nol"
+        android:layout_toRightOf="@+id/tujuh"
+        android:theme="@style/Angka.Button"
+        android:onClick="btnCLick"
+        android:text="8" />
+
+    <Button
+        android:id="@+id/sembilan"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:theme="@style/Angka.Button"
+        android:layout_above="@+id/nol"
+        android:layout_toRightOf="@+id/delapan"
+        android:onClick="btnCLick"
+        android:text="9" />
+
+    <Button
+        android:id="@+id/hurufA"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:theme="@style/Oper.Button"
+        android:layout_above="@+id/enam"
+        android:layout_alignParentLeft="true"
+        android:onClick="btnCLick"
+        android:text="A" />
+
+    <Button
+        android:id="@+id/hurufB"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:theme="@style/Oper.Button"
+        android:layout_above="@+id/enam"
+        android:layout_toRightOf="@+id/hurufA"
+        android:onClick="btnCLick"
+        android:text="B" />
+
+    <Button
+        android:id="@+id/hurufC"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:theme="@style/Oper.Button"
+        android:layout_above="@+id/enam"
+        android:layout_toRightOf="@+id/hurufB"
+        android:onClick="btnCLick"
+        android:text="C" />
+
+    <Button
+        android:id="@+id/plus"
+        android:layout_width="@dimen/btnbig"
+        android:layout_height="@dimen/btnsmall"
+        android:layout_above="@+id/enam"
+        android:theme="@style/AppTheme.Button"
+        android:layout_toRightOf="@+id/hurufC"
+        android:onClick="btnCLick"
+        android:text="+" />
+
+    <Button
+        android:id="@+id/hurufD"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:theme="@style/Oper.Button"
+        android:layout_above="@+id/hurufA"
+        android:layout_alignParentLeft="true"
+        android:onClick="btnCLick"
+        android:text="D" />
+
+    <Button
+        android:id="@+id/hurufE"
+        android:layout_width="@dimen/btnsmall"
+        android:theme="@style/Oper.Button"
+        android:layout_height="@dimen/btnsmall"
+        android:layout_above="@+id/hurufA"
+        android:layout_toRightOf="@+id/hurufD"
+        android:onClick="btnCLick"
+        android:text="E" />
+
+    <Button
+        android:id="@+id/kali"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:theme="@style/AppTheme.Button"
+        android:layout_above="@+id/hurufA"
+        android:layout_toRightOf="@+id/hurufE"
+        android:onClick="btnCLick"
+        android:text="X" />
+
+    <Button
+        android:id="@+id/bagi"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:theme="@style/AppTheme.Button"
+        android:layout_above="@+id/hurufA"
+        android:layout_toRightOf="@+id/kali"
+        android:onClick="btnCLick"
+        android:text=":" />
+
+    <Button
+        android:id="@+id/minus"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:layout_above="@+id/hurufA"
+        android:layout_toRightOf="@+id/bagi"
+        android:theme="@style/AppTheme.Button"
+        android:onClick="btnCLick"
+        android:text="-" />
+
+    <Button
+        android:id="@+id/hurufF"
+        android:layout_width="@dimen/btnsmall"
+        android:theme="@style/Oper.Button"
+        android:layout_height="@dimen/btnsmall"
+        android:layout_above="@+id/hurufD"
+        android:layout_alignParentLeft="true"
+        android:onClick="btnCLick"
+        android:text="F" />
+
+    <Button
+        android:id="@+id/hurufG"
+        android:layout_width="@dimen/btnsmall"
+        android:layout_height="@dimen/btnsmall"
+        android:theme="@style/Oper.Button"
+        android:layout_above="@+id/hurufD"
+        android:layout_toRightOf="@+id/hurufF"
+        android:onClick="btnCLick"
+        android:text="G" />
+
+    <Button
+        android:id="@+id/hurufH"
+        android:layout_width="@dimen/btnsmall"
+        android:theme="@style/Oper.Button"
+        android:layout_height="@dimen/btnsmall"
+        android:layout_above="@+id/hurufD"
+        android:layout_toRightOf="@+id/hurufG"
+        android:onClick="btnCLick"
+        android:text="H" />
+
+    <Button
+        android:id="@+id/equal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btnsmall"
+        android:layout_alignParentLeft="true"
+        android:layout_above="@+id/copy"
+        android:onClick="btnCLick"
+        android:theme="@style/AppTheme.Button"
+        android:text="=" />
+
+    <Button
+        android:id="@+id/clear"
+        android:layout_width="@dimen/btnbig"
+        android:layout_height="@dimen/btnsmall"
+        android:layout_above="@+id/bagi"
+        android:layout_alignParentRight="true"
+        android:onClick="btnCLick"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:text="CLEAR" />
+
+
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="btnsmall">65dp</dimen>
+    <dimen name="btnbig">130dp</dimen>
+    <dimen name="lbtnsmall">60dp</dimen>
+    <dimen name="lbtnbig">120dp</dimen>
+    <dimen name="padbtn">5dp</dimen>
+    <dimen name="layoutpad">17dp</dimen>
+    <dimen name="layoutpadLand">17dp</dimen>
+
+
+</resources>
