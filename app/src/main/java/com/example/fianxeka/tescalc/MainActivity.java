@@ -22,10 +22,17 @@ public class MainActivity extends AppCompatActivity {
         //removenotifybar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
 
+        setContentView(R.layout.activity_main);
         result = (TextView) findViewById(R.id.txtResult);
         formula = (TextView) findViewById(R.id.formula);
+        if (savedInstanceState != null){
+            strResult = savedInstanceState.getString("result");
+            strFormula = savedInstanceState.getString("formula");
+            result.setText(savedInstanceState.getString("result"));
+            formula.setText(savedInstanceState.getString("formula"));
+        }
+
     }
 
     //tohandle operator + : - x
@@ -39,15 +46,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void showMyResult(){
+    public void showResult(){
         String newResult = logic.getResult(result.getText().toString());
-        if (!logic.cantZero){
+        if (!logic.cantZero && newResult!="min"){
             formula.setText(strResult);
             strResult = newResult;
             result.setText(strResult);
         }else{
-            showNotif("Cannot Divide Zero Number");
-            logic.cantZero = false;
+            if (newResult == "min"){
+                showNotif("Equal Is Minus");
+            }
+            else{
+                showNotif("Cannot Mod Zero Number");
+                logic.cantZero = false;
+            }
+
         }
 
     }
@@ -58,7 +71,9 @@ public class MainActivity extends AppCompatActivity {
     public void btnCLick(View view) {
         switch (view.getId()) {
             case R.id.nol:
-                result.setText(strResult+="0");
+                if (!logic.cekOperator(strResult) && strResult!=""){
+                    result.setText(strResult+="0");
+                }
                 break;
             case R.id.satu:
                 result.setText(strResult+="1");
@@ -123,23 +138,23 @@ public class MainActivity extends AppCompatActivity {
                     showNotif("Only Positive Number");
                 }
                 break;
-            case R.id.bagi:
+            case R.id.mod:
                 if (strResult!=""){
-                    operatorClick(':');
+                    operatorClick('%');
                 }else{
-                    showNotif("You Must Add One Number At Least");
+                    showNotif("Please, Input The Number");
                 }
                 break;
             case R.id.kali:
                 if (strResult!=""){
                     operatorClick('x');
                 }else{
-                    showNotif("You Must Add One Number At Least");
+                    showNotif("Please, Input The Number");
                 }
                 break;
             case R.id.equal:
                 if (strResult.length() >= 3 && !logic.cekOperator(strResult)){
-                    showMyResult();
+                    showResult();
                 }
                 break;
             case R.id.clear:
@@ -156,14 +171,15 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putString("formula", (String) formula.getText());
     }
 
-    @Override
+
+    /*@Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         strResult = savedInstanceState.getString("result");
         strFormula = savedInstanceState.getString("formula");
         result.setText(savedInstanceState.getString("result"));
         formula.setText(savedInstanceState.getString("formula"));
-    }
+    }*/
 
 
 }

@@ -15,8 +15,11 @@ public class MainLogic {
     public static boolean cantZero = false;
 
     public static boolean cekOperator (String formula){
-        char last = formula.charAt(formula.length() - 1);
-        if (last == '+' || last == '-' || last == 'x' || last == ':'){
+        char last = '0';
+        if(formula!="") {
+            last=formula.charAt(formula.length() - 1);
+        }
+        if (last == '+' || last == '-' || last == 'x' || last == '%'){
             return true;
         }
         return false;
@@ -38,8 +41,8 @@ public class MainLogic {
                 i--;
                 operan.push(toDec(temp));
             }
-            if (bil[i] == '+' | bil[i] == '-' | bil[i] == 'x' | bil[i] == ':'){
-                while (!operator.empty() && checkPriority(bil[i],operator.peek())){
+            if (bil[i] == '+' | bil[i] == '-' | bil[i] == 'x' | bil[i] == '%'){
+                while (!operator.empty() && cekPriority(bil[i],operator.peek())){
                     Log.d("tes", Arrays.toString(operan.toArray()));
                     operan.push(compute(operator.pop(),operan.pop(),operan.pop()));
                 }
@@ -52,7 +55,11 @@ public class MainLogic {
         while (!operator.empty()){
             operan.push(compute(operator.pop(),operan.pop(),operan.pop()));
         }
+        if (operan.peek() < 0){
+            return("min");
+        }
         return toBase18(operan.pop());
+        //return String.valueOf(operan.pop());
 
     }
 
@@ -64,18 +71,18 @@ public class MainLogic {
                 return a - b;
             case 'x':
                 return a * b;
-            case ':':
+            case '%':
                 if (b == 0) {
                     cantZero = true;
                     return 0;
                 }
-                return a / b;
+                return a % b;
         }
         return 0;
     }
 
-    public static boolean checkPriority(char operator1, char operator2){
-        if ((operator1 == 'x' || operator1 == ':') && (operator2 == '+' || operator2 == '-')) {
+    public static boolean cekPriority(char op1, char op2){
+        if ((op1 == 'x' || op1 == '%') && (op2 == '+' || op2 == '-')) {
             return false;
         }
         else {

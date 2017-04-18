@@ -211,13 +211,13 @@
         android:theme="@style/AppTheme.Button" />
 
     <Button
-        android:id="@+id/bagi"
+        android:id="@+id/mod"
         android:layout_width="@dimen/lbtnsmall"
         android:layout_height="@dimen/lbtnsmall"
         android:layout_above="@+id/nol"
         android:layout_toRightOf="@+id/kali"
         android:onClick="btnCLick"
-        android:text=":"
+        android:text="MOD"
         android:theme="@style/AppTheme.Button" />
 
     <Button
@@ -225,7 +225,7 @@
         android:layout_width="@dimen/lbtnsmall"
         android:layout_height="@dimen/lbtnsmall"
         android:layout_above="@+id/nol"
-        android:layout_toRightOf="@+id/bagi"
+        android:layout_toRightOf="@+id/mod"
         android:onClick="btnCLick"
         android:text="-"
         android:theme="@style/AppTheme.Button" />
