@@ -18,11 +18,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //removenotifybar
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_main);
         result = (TextView) findViewById(R.id.txtResult);
         formula = (TextView) findViewById(R.id.formula);
@@ -32,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
             result.setText(savedInstanceState.getString("result"));
             formula.setText(savedInstanceState.getString("formula"));
         }
-
     }
 
     //tohandle operator + : - x
@@ -54,19 +48,20 @@ public class MainActivity extends AppCompatActivity {
             result.setText(strResult);
         }else{
             if (newResult == "min"){
-                showNotif("Equal Is Minus");
+                showNotif("Negative Result Not Allowed");
             }
             else{
-                showNotif("Cannot Mod Zero Number");
+                showNotif("Cannot MOD By Zero Number");
                 logic.cantZero = false;
             }
 
         }
 
     }
-    public void showNotif(String Message){
+    public void showNotif(String Message)   {
         Toast.makeText(this, Message, Toast.LENGTH_SHORT).show();
     }
+
     //Tohandle Button Click
     public void btnCLick(View view) {
         switch (view.getId()) {
@@ -142,14 +137,14 @@ public class MainActivity extends AppCompatActivity {
                 if (strResult!=""){
                     operatorClick('%');
                 }else{
-                    showNotif("Please, Input The Number");
+                    showNotif("Input The Number");
                 }
                 break;
             case R.id.kali:
                 if (strResult!=""){
                     operatorClick('x');
                 }else{
-                    showNotif("Please, Input The Number");
+                    showNotif("Input The Number");
                 }
                 break;
             case R.id.equal:

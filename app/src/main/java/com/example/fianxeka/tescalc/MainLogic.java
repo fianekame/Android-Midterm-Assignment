@@ -27,7 +27,7 @@ public class MainLogic {
 
     public static String getResult(String bilangan){
         char[] bil = bilangan.toCharArray();
-        Log.d("Split", Arrays.toString(bil));
+        Log.d("Hasil Split", Arrays.toString(bil));
 
         Stack<Integer> operan = new Stack<Integer>();
         Stack<Character> operator = new Stack<Character>();
@@ -43,7 +43,7 @@ public class MainLogic {
             }
             if (bil[i] == '+' | bil[i] == '-' | bil[i] == 'x' | bil[i] == '%'){
                 while (!operator.empty() && cekPriority(bil[i],operator.peek())){
-                    Log.d("tes", Arrays.toString(operan.toArray()));
+                    Log.d("Masuk Priority", Arrays.toString(operan.toArray()));
                     operan.push(compute(operator.pop(),operan.pop(),operan.pop()));
                 }
                 operator.push(bil[i]);
@@ -91,7 +91,6 @@ public class MainLogic {
     }
 
     public static int toDec(String base){
-        base = base.toUpperCase();
         int result = 0;
         for (int i = 0; i < base.length() ; i++) {
             char c = base.charAt(i);
